@@ -1,0 +1,52 @@
+{
+  "name": "stencil-query",
+  "version": "0.0.0-alpha.3",
+  "description": "A lightweight, reactive query client for StencilJS components. It simplifies data fetching, caching, and state management in your Stencil applications.",
+  "keywords": [
+    "stencil",
+    "StencilJS",
+    "query",
+    "reactive",
+    "data-fetching",
+    "state-management"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/k3nsei/stencil-query.git"
+  },
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "import": "./dist/query/query.esm.js",
+      "require": "./dist/query/query.cjs.js",
+      "types": "./dist/types/index.d.ts"
+    },
+    "./query-controller": {
+      "import": "./dist/collection/mixins/query-controller.mixin.js",
+      "types": "./dist/types/mixins/query-controller.mixin.d.ts"
+    }
+  },
+  "main": "dist/index.cjs.js",
+  "unpkg": "dist/query/query.esm.js",
+  "module": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist/",
+    "!dist/loader/",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "stencil build"
+  },
+  "devDependencies": {
+    "@stencil/core": "catalog:",
+    "@types/node": "catalog:"
+  },
+  "peerDependencies": {
+    "@stencil/core": "^4.43.2",
+    "rxjs": "^7.8.2"
+  },
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js"
+}

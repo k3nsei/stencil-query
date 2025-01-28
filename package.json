@@ -1,0 +1,28 @@
+{
+  "name": "@stencil-query/source",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "format:check": "prettier --check --ignore-unknown .",
+    "format:write": "prettier --write --ignore-unknown .",
+    "prepare": "git config core.hookspath .githooks || true"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "catalog:",
+    "@commitlint/config-conventional": "catalog:",
+    "@commitlint/types": "catalog:",
+    "@types/node": "catalog:",
+    "lint-staged": "catalog:",
+    "prettier": "catalog:",
+    "prettier-plugin-packagejson": "catalog:",
+    "prettier-plugin-sh": "catalog:",
+    "prettier-plugin-tailwindcss": "catalog:",
+    "rxjs": "catalog:",
+    "typescript": "catalog:"
+  },
+  "packageManager": "pnpm@10.32.1",
+  "volta": {
+    "node": "24.14.0",
+    "pnpm": "10.32.1"
+  }
+}
