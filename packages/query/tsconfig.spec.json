@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/spec",
+    "target": "ES2024",
+    "module": "ESNext",
+    "types": ["node", "@vitest/browser/providers/playwright", "vitest/globals"]
+  },
+  "include": ["./src/**/*.spec.ts", "./src/**/*.d.ts"]
+}

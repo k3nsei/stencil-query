@@ -1,0 +1,25 @@
+{
+  "name": "@stencil-query/source",
+  "private": true,
+  "scripts": {
+    "format:check": "prettier --check --ignore-unknown .",
+    "format:write": "prettier --write --ignore-unknown .",
+    "prepare": "git config core.hookspath .githooks || true"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@commitlint/types": "^19.5.0",
+    "@types/node": "^22.12.0",
+    "lint-staged": "^15.4.3",
+    "prettier": "3.4.2",
+    "prettier-plugin-packagejson": "2.5.8",
+    "prettier-plugin-sh": "0.14.0",
+    "typescript": "~5.7.3"
+  },
+  "packageManager": "pnpm@10.1.0",
+  "volta": {
+    "node": "22.13.1",
+    "pnpm": "10.1.0"
+  }
+}

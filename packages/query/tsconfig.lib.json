@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "ES2024",
+    "module": "ESNext"
+  },
+  "files": ["./src/index.ts"],
+  "include": ["./src/**/*.ts", "./src/**/*.d.ts"],
+  "exclude": ["node_modules", "./src/**/*.spec.ts"]
+}

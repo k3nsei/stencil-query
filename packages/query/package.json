@@ -1,0 +1,50 @@
+{
+  "name": "@stencil-query/query",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [],
+  "homepage": "https://github.com/k3nsei/stencil-query#readme",
+  "bugs": {
+    "url": "https://github.com/k3nsei/stencil-query/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/k3nsei/stencil-query.git"
+  },
+  "license": "MPL-2.0",
+  "author": "Piotr Stępniewski (k3nsei)",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/stencil-query.d.ts",
+      "require": "./dist/stencil-query.umd.cjs",
+      "default": "./dist/stencil-query.js"
+    }
+  },
+  "main": "dist/stencil-query.umd.cjs",
+  "module": "dist/stencil-query.js",
+  "typings": "dist/stencil-query.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "cross-env NODE_ENV=production vite build",
+    "build:watch": "cross-env NODE_ENV=production vite build --watch",
+    "playwright:setup-browsers": "playwright install",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage"
+  },
+  "dependencies": {
+    "@stencil/store": "^2.0.16"
+  },
+  "devDependencies": {
+    "@vitest/browser": "^3.0.4",
+    "@vitest/coverage-v8": "^3.0.4",
+    "cross-env": "^7.0.3",
+    "playwright": "^1.50.0",
+    "typescript": "~5.7.3",
+    "vite": "^6.0.11",
+    "vite-plugin-dts": "^4.5.0",
+    "vitest": "^3.0.4"
+  }
+}
