@@ -1,0 +1,30 @@
+name: Pull Request
+
+concurrency:
+  group: ${{ github.workflow }}-pr-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: Why was the workflow triggered manually?
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    uses: ./.github/workflows/01-lint.yml
+
+  build:
+    needs: lint
+    uses: ./.github/workflows/02-build.yml
+
+  e2e:
+    needs: build
+    uses: ./.github/workflows/03-e2e.yml

@@ -40,7 +40,8 @@
   "devDependencies": {
     "@playwright/test": "catalog:",
     "@stencil/core": "catalog:",
-    "@types/node": "catalog:"
+    "@types/node": "catalog:",
+    "serve": "catalog:"
   },
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js"

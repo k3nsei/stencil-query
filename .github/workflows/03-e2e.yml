@@ -1,0 +1,50 @@
+name: E2E
+
+concurrency:
+  group: ${{ github.workflow }}-e2e-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  e2e:
+    name: Run E2E Tests
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.58.2-noble
+      options: --user 1001
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: ['chromium', 'firefox', 'webkit']
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Download build artifact
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: build-artifact
+          path: packages
+
+      - name: Install dependencies
+        uses: ./.github/actions/install-deps
+
+      - name: Run tests
+        working-directory: packages/demo
+        run: pnpm test --project=${{ matrix.browser }}
+
+      - name: Upload test report
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: playwright-${{ matrix.browser }}-report
+          retention-days: 7
+          path: |
+            packages/**/playwright-report/
+            packages/**/test-results/
