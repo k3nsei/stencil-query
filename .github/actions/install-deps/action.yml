@@ -1,0 +1,21 @@
+name: Install Dependencies
+description: Setup Node.js and install dependencies
+
+runs:
+  using: composite
+  steps:
+    - name: Setup PNPM
+      uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
+      with:
+        cache: true
+        run_install: false
+
+    - name: Setup Node.js
+      uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6.1.0
+      with:
+        cache: pnpm
+        node-version-file: .node-version
+
+    - name: Install dependencies
+      shell: bash
+      run: pnpm install --frozen-lockfile

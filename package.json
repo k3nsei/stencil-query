@@ -5,6 +5,8 @@
   "scripts": {
     "format:check": "prettier --check --ignore-unknown .",
     "format:write": "prettier --write --ignore-unknown .",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
     "prepare": "git config core.hookspath .githooks || true"
   },
   "devDependencies": {
@@ -13,6 +15,7 @@
     "@commitlint/types": "catalog:",
     "@types/node": "catalog:",
     "lint-staged": "catalog:",
+    "oxlint": "catalog:",
     "prettier": "catalog:",
     "prettier-plugin-packagejson": "catalog:",
     "prettier-plugin-sh": "catalog:",

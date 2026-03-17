@@ -1,26 +1,66 @@
-dist/
-www/
-loader/
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-*~
-*.sw[mnpcod]
+# Build
+.stencil/
+coverage/
+dist/
+loader/
+out-tsc/
+tmp/
+www/
+
+# Playwright
+blob-report/
+playwright-report/
+test-results/
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
 *.log
-*.lock
-*.tmp
-*.tmp.*
 log.txt
+
+# Miscellaneous
+.sass-cache/
+.versions/
+typings/
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
 *.sublime-project
 *.sublime-workspace
 
-.stencil/
-.idea/
-.vscode/
-.sass-cache/
-.versions/
-node_modules/
-$RECYCLE.BIN/
+# Visual Studio Code
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/mcp.json
+!.vscode/settings.json
+!.vscode/tasks.json
 
+# Miscellaneous
+*~
+*.sw[mnpcod]
+*.lock
+*.tmp
+*.tmp.*
+
+# OS
 .DS_Store
 Thumbs.db
-UserInterfaceState.xcuserstate
-.env
+Desktop.ini
+$RECYCLE.BIN/

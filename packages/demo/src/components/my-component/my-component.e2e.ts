@@ -1,8 +1,12 @@
 import { test, expect } from '@playwright/test';
 
+test.beforeAll(async () => {
+  test.setTimeout(5_000);
+});
+
 test('Stencil Query Demo', async ({ page }) => {
   await test.step('Navigate to main page', async () => {
-    await page.goto('/');
+    await page.goto('/?delay=3000');
 
     const cmp = page.locator('my-component');
     await expect(cmp).toHaveClass(/hydrated/);

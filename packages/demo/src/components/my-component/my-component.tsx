@@ -135,6 +135,9 @@ export class MyComponent
 }
 
 const createFetchFn = (callback: (value: string) => CustomEvent) => {
+  const delay =
+    Number(new URLSearchParams(location.search).get('delay')) || 1_000;
+
   const words = [
     'It works on my machine',
     'Have you tried turning it off and on again?',
@@ -148,7 +151,7 @@ const createFetchFn = (callback: (value: string) => CustomEvent) => {
 
   return () => {
     const promise = new Promise<string>((resolve) =>
-      setTimeout(() => resolve(words[i++ % words.length]), 2_000),
+      setTimeout(() => resolve(words[i++ % words.length]), delay),
     );
 
     promise.then((value) => callback(value));

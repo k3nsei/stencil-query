@@ -1,7 +1,6 @@
 minimumReleaseAge: 2880
 onlyBuiltDependencies:
   - esbuild
-  - puppeteer
 packages:
   - 'packages/*'
 catalog:
@@ -12,11 +11,13 @@ catalog:
   '@stencil/core': '4.43.2'
   '@types/node': '24.12.0'
   lint-staged: '16.4.0'
+  oxlint: '1.56.0'
   prettier: '3.8.1'
   prettier-plugin-packagejson: '3.0.2'
   prettier-plugin-sh: '0.18.0'
   prettier-plugin-tailwindcss: '0.7.2'
   rxjs: '7.8.2'
+  serve: '14.2.6'
   typescript: '5.9.3'
 overrides:
   '@types/node': '^24'

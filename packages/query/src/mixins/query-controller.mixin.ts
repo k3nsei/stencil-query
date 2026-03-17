@@ -56,6 +56,7 @@ export const queryControllerFactory = <B extends MixedInCtor>(Ctor: B) => {
     }
 
     #getState<T>(key: string): QueryState<T> {
+      // oxlint-disable-next-line typescript/no-this-alias
       const self = this;
 
       return {

@@ -1,0 +1,38 @@
+name: Build
+
+concurrency:
+  group: ${{ github.workflow }}-build-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Run Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Install dependencies
+        uses: ./.github/actions/install-deps
+
+      - name: Build library
+        run: pnpm --filter stencil-query build
+
+      - name: Build demo application
+        run: pnpm --filter @stencil-query/demo build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: build-artifact
+          retention-days: 7
+          path: |
+            packages/**/dist/
+            packages/**/loader/
+            packages/**/www/
